@@ -1,0 +1,27 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+header {
+	padding: 1rem;
+}
+header h1 {
+	margin: 0;
+	font-weight: normal;
+	font-size: 2rem;
+}
+.collapsible {
+	width: 320px;
+	position: fixed;
+	margin: 0;
+	top: 63px;
+	left: 0;
+}
+.contents {
+	position: fixed;
+	padding: 3rem;
+	left: 320px;
+}
+canvas {
+	cursor: crosshair;
+}
