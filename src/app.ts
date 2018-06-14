@@ -1,33 +1,35 @@
+import { Shape, Stage, Graphics } from '@createjs/easeljs/dist/easeljs.module';
+
 window.addEventListener('load', () => {new Main();});
 
 class Main {
 
-	private stage: createjs.Stage;
-	private obj: createjs.Shape;
+	private stage: any;
+	private obj: any;
 
 	/* コンストラクタ（初期処理） */
 	constructor() {
-		this.stage = new createjs.Stage('myCanvas');
+		this.stage = new Stage('myCanvas');
 
 		/* グラデーションサンプル 円形 */
-		const graphics1:createjs.Graphics  = new createjs.Graphics();
+		const graphics1:any  = new Graphics();
 		graphics1
 		.beginRadialGradientFill(["#fff", "#00ffff", "#fff", "#ffff00"], [0, 0.4, 0.8, 1], 240, 280, 100, 340, 380, 280)
 		.drawRect(0, 0, 480, 560);
-		const shape:createjs.Shape = new createjs.Shape(graphics1);
+		const shape:any = new Shape(graphics1);
 		this.stage.addChild(shape);
 
 		/* グラデーションサンプル　線形 */
-		const graphics2:createjs.Graphics  = new createjs.Graphics();
+		const graphics2:any  = new Graphics();
 		graphics2
 		.beginLinearGradientFill(["#ffff00", "rgba(0,0,255,.5)"], [0, 1], 960, 0, 480, 0)
 		.drawRect(480, 0, 480, 560);
-		const shape2:createjs.Shape = new createjs.Shape(graphics2);
+		const shape2:any = new Shape(graphics2);
 		this.stage.addChild(shape2);
 
 		/* 枠線サンプル */
 		const strokeWidth:number = 30;
-		const graphics3:createjs.Graphics = new createjs.Graphics();
+		const graphics3:any = new Graphics();
 		graphics3
 		.setStrokeDash([], 0)
 		// .setStrokeDash([strokeWidth, strokeWidth * 2], 0)
@@ -39,13 +41,13 @@ class Main {
 		.drawEllipse(300, 100, 300, 300)
 		.endStroke();
 
-		const shape3:createjs.Shape = new createjs.Shape(graphics3);
+		const shape3:any = new Shape(graphics3);
 		this.stage.addChild(shape3);
 
 
 		if (createjs.Touch.isSupported()) createjs.Touch.enable(this.stage);
 
-		this.obj = new createjs.Shape();
+		this.obj = new Shape();
 		this.stage.addChild(this.obj);
 		this.stage.addEventListener('stagemousedown', this.handleDown);
 
